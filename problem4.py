@@ -51,13 +51,7 @@ if __name__ == "__main__":
 
     top100_ips = ip_address.take(100)
 
-#Напишите программу, выводящую на экран
-#распределение хитов посещенным страницам (страницам вида /id18222), на
-#которые заходили TOP100 самых активных пользователей (ip адресов, с
-#которых поступило наибольшее количество хитов)
-    
-    # !!!!!!! проверить, что в request[1] лежит то, что я думаю
-
+    #count hits for 100 most active users
     cnt_hits = objects.filter(lambda s: s[0] in top100_ips) \
                     .map(lambda line_tuple: (line_tuple[3], 1)) \
                     .reduceByKey(lambda a, b: a + b) \

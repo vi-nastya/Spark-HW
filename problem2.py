@@ -33,7 +33,7 @@ def parseLine(line):
         match.group('referer'), match.group('user_agent'),
         dt.strptime(match.group('time').split()[0], '%d/%b/%Y:%H:%M:%S').hour)
 
-#Напишите программу, выводящую на экран суммарное количество переданной информации для каждого клиента. 
+#use "bytes" as values instead of 1s. 
 
 if __name__ == "__main__":
     conf = SparkConf().setAppName("vinastya_2_spark_app").setMaster(sys.argv[1]).set("spark.ui.port", "4090")
